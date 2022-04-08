@@ -46,9 +46,9 @@ class Printer {
 
     startPrinting() { //початок друку
         if (this.paintCount > 0 && this.papersCount > 0) {
-            alert("Printing has been started at:  " + this.getTime() + "\r You have " + this.papersCount + " sheats of paper and " + this.paintCount + "ml of paint.");
+            alert("Printing has been started at:  " + Printer.getTime() + "\r You have " + this.papersCount + " sheats of paper and " + this.paintCount + "ml of paint.");
             this.processStocks();
-            alert("Printing has been ended at:  " + this.getTime() + "\r You have " + this.papersCount + " sheats of paper and " + this.paintCount + "ml of paint.");
+            alert("Printing has been ended at:  " + Printer.getTime() + "\r You have " + this.papersCount + " sheats of paper and " + this.paintCount + "ml of paint.");
             this.startWorking();
         } else {
             alert("Oops, looks like you don't have enough paint or paper. Please restock the paper and ink in your printer.");
@@ -58,8 +58,8 @@ class Printer {
 
     startScanning() {
         let actualTime = new Date();
-        alert("Scanning has been started at:  " + this.getTime());
-        alert("Scanning has been ended at:  " + this.getTime() + "\r You have " + this.papersCount + " sheats of paper and " + this.paintCount + "ml of paint.");
+        alert("Scanning has been started at:  " + Printer.getTime());
+        alert("Scanning has been ended at:  " + Printer.getTime() + "\r You have " + this.papersCount + " sheats of paper and " + this.paintCount + "ml of paint.");
         this.startWorking();
     }
 
@@ -96,5 +96,6 @@ class Printer {
     }
 }
 
-let samsungPrinter = new Printer(true, 100, 100, "2 years", false, false)
+let samsungPrinter = new Printer(true, 100, 100, "2 years", true    , false)
 
+samsungPrinter.startWorking()
