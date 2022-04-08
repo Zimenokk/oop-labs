@@ -63,7 +63,7 @@ class Printer {
         this.startWorking();
     }
 
-    paperPrintCount() { //повертає рандомну кілкість паперу за один друк
+     static paperPrintCount() { //повертає рандомну кілкість паперу за один друк
         let minPapersCount = 1;
         let maxPapersCount = 15;
         let paperRandomCount = Math.floor(Math.random() * (maxPapersCount - minPapersCount + 1)) + minPapersCount;
@@ -72,9 +72,9 @@ class Printer {
 
     processStocks() { //зменшує кількість фарби та паперу в принтері
         let paintPage = 1.2;
-        if (this.paintCount >= (paintPage * this.paperPrintCount()) && this.papersCount>=this.paperPrintCount()){
-            this.paintCount = (this.paintCount - paintPage * this.paperPrintCount()).toFixed(1);
-            this.papersCount -= this.paperPrintCount();
+        if (this.paintCount >= (paintPage * Printer.paperPrintCount()) && this.papersCount>=Printer.paperPrintCount()){
+            this.paintCount = (this.paintCount - paintPage * Printer.paperPrintCount()).toFixed(1);
+            this.papersCount -= Printer.paperPrintCount();
         }else{
             alert("You don't have enough paper and/or ink to print the document you want.")
             this.startWorking()
