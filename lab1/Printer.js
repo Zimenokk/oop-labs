@@ -91,6 +91,7 @@ class Printer {
 
     static getTime() {
         let myTime = new Date()
+
         let time = myTime.getHours() + ":" + myTime.getUTCMinutes()
         return time
     }
