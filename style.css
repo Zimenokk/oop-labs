@@ -1,0 +1,11 @@
+.container{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 70%;
+	margin: 10% auto;
+	align-items: center;
+}
+ol>li{
+	margin-bottom: 2%;
+}
