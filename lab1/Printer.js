@@ -12,7 +12,7 @@ class Printer {
 
     startWorking() {
         if (this.isOn == true) {
-            alert("Hello, your printer is ON. \r Your current OS is: " + this.#operSystem + "." + "\r" + this.wifiProperies() + "\rYour warantee period ends in " + this.warrantyPeriod + ".")
+            alert("Hello, your printer is ON. \rYour current OS is: " + this.#operSystem + "." + "\r" + this.wifiProperies() + "\rYour warantee period ends in " + this.warrantyPeriod + ".")
             if (this.isScaner == true) {
                 this.printAndScan()
             } else {
@@ -91,12 +91,13 @@ class Printer {
 
     static getTime() {
         let myTime = new Date()
-
         let time = myTime.getHours() + ":" + myTime.getUTCMinutes()
         return time
     }
 }
 
 let samsungPrinter = new Printer(true, 100, 100, "2 years", true    , false)
+let lgPrinter = new Printer(true, 20, 10, "1 years", false    , true)
 
-samsungPrinter.startWorking()
+// samsungPrinter.startWorking()
+lgPrinter.startWorking()
