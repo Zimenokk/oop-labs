@@ -13,11 +13,12 @@ let thirdReadyOutput = document.getElementById("thirdReadyOutput")
 
 let basicLink = "https://zimenokk.github.io/oop-labs/lab2/basicQueue.json";
 let priorityLink = "https://zimenokk.github.io/oop-labs/lab2/priorityQueue.json";
-let reverseLink = "";
+let reverseLink = "https://zimenokk.github.io/oop-labs/lab2/reverseQueue.json";
 
 firstUplBtn.addEventListener('click' ,()=>basicQueueAssign(uploadJson(basicLink)));
 secondUplBtn.addEventListener('click' ,()=>priorityQue(uploadJson(priorityLink)));
-thirdUPL.addEventListener('click', ()=>reverseQue(uploadJson(reverseLink)));
+thirdUPL.addEventListener('click', ()=>reverseQueUpload(uploadJson(reverseLink)));
+thirdQUE.addEventListener('click', ()=>reverseQueDo(uploadJson(reverseLink)));
 
 
 
@@ -29,9 +30,10 @@ async function uploadJson(link){
 }
 
     function basicQueueAssign(jsonObj){
-        let count=0;
         jsonObj.then(data =>{
-            // console.log(data)
+            firstOutput.innerHTML = "";
+            firstReadyOutput.innerHTML = "";
+
             for (let key  in data){
                 firstOutput.innerHTML +=data[key];
                 firstOutput.innerHTML +="; ";
@@ -42,6 +44,7 @@ async function uploadJson(link){
         })
     }
     function priorityQue(jsonObj){
+        secondReadyOutput.innerHTML = "";
         jsonObj.then(data =>{
             // console.log(data)
             let jsonKeys = Object.keys(data);
@@ -54,19 +57,28 @@ async function uploadJson(link){
         })
     }
 
-    function reverseQue(jsonObj){
+    function reverseQueUpload(jsonObj){
+        thirdOutput.innerHTML = "";
         jsonObj.then(data =>{
-            // console.log(data)
             let jsonKeys = Object.keys(data);
             jsonKeys.forEach(key=>{
-
-                secondReadyOutput.innerHTML +=data[key];
-                secondReadyOutput.innerHTML +="; ";
-
+                thirdOutput.innerHTML +=data[key];
+                thirdOutput.innerHTML +="; ";
             })
+
+
         })
     }
+    function reverseQueDo(jsonObj){
+        thirdReadyOutput.innerHTML = "";
+        jsonObj.then(data =>{
+            let reversedQueArray = Object.keys(data).reverse()
+            reversedQueArray.forEach(key=> {
+                console.log(data[key])
+                thirdReadyOutput.innerHTML +=data[key];
+                thirdReadyOutput.innerHTML +="; ";
+            })
 
-
-
+        })
+    }
 
