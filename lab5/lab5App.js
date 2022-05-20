@@ -57,3 +57,6 @@ var metaHello = Function.subclass(
     });
 
 sayHello.__proto__ = metaHello.prototype;
+
+let object={}
+console.log(object)
