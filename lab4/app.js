@@ -1,18 +1,11 @@
-class BasicQue{
-    constructor(link) {
-        this.link = "https://zimenokk.github.io/oop-labs/lab2/basicQueue.json";
+class Interface{
+    constructor(props) {
     }
     firstUplBtn = document.getElementById("firstUplBtn")
     firstOutput = document.getElementById("firstOutput")
     firstReadyOutput = document.getElementById("firstReadyOutput")
 
-    async uploadJson(link){
-        var request = await fetch(link);
-        let result = await request.json();
-        return result
-    }
-
-    variableSet(){
+    InterfaceSet(){
         firstUplBtn.addEventListener('click' ,()=>this.sortQue(this.uploadJson(this.link)));
 
     }
@@ -67,6 +60,24 @@ class BasicQue{
         }
 
     }
+
+}
+class BasicQue extends Interface{
+    constructor(link) {
+        super()
+        this.link = "https://zimenokk.github.io/oop-labs/lab2/basicQueue.json";
+    }
+    // firstUplBtn = document.getElementById("firstUplBtn")
+    // firstOutput = document.getElementById("firstOutput")
+    // firstReadyOutput = document.getElementById("firstReadyOutput")
+
+    async uploadJson(link){
+        var request = await fetch(link);
+        let result = await request.json();
+        return result
+    }
+
+
 }
 
 
@@ -104,6 +115,6 @@ class ReverseQue extends PriorityQue{
 let basicLogger = new BasicQue();
 let superLogger = new PriorityQue();
 let reverceLogger = new ReverseQue();
-basicLogger.variableSet()
+basicLogger.InterfaceSet()
 superLogger.InterfaceSet()
 reverceLogger.InterfaceSet()
